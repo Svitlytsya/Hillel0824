@@ -8,11 +8,13 @@ namespace SeleniumDemoQA.Tests
 {
     public class ButtonTests
     {
-        private IWebDriver _driver;
+        private ChromeDriver _driver;
 
         [SetUp]
         public void Setup()
         {
+          
+
             _driver = new ChromeDriver();
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             _driver.Navigate().GoToUrl("https://demoqa.com/buttons");
