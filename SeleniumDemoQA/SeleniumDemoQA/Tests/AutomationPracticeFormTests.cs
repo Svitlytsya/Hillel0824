@@ -5,62 +5,14 @@ using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumDemoQA.Tests
 {
-    public class AutomationPracticeFormTests
+    public class AutomationPracticeFormTests: BaseClass
     {
-        private IWebDriver _driver;
-        IJavaScriptExecutor _js;
-
-        [SetUp]
-        public void Setup()
-        {
-            var options = new ChromeOptions();
-            options.AddArgument("window-size=1400,1200"); // Set desired resolution
-            _driver = new ChromeDriver(options);
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
-            _js = (IJavaScriptExecutor)_driver;
-        }
-
-        private void ScrollTo(IWebElement element)
-        {
-            _js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
-        }
-
-        private IWebElement GetElementBy(By selector)
-        {
-            return _driver.FindElement(selector);
-        }
-        
-        private void FillInput(By selector, string value)
-        {
-            var firstNameInput = _driver.FindElement(selector);
-            ScrollTo(firstNameInput);
-            firstNameInput.SendKeys(value);
-        }
-
-        private void ClickElement(By selector)
-        {
-            var element = GetElementBy(selector);
-            ScrollTo(element);
-            element.Click();
-        } 
-       
-        private void SelectByText(By selector, string text)
-        {
-            var selectMonth = new SelectElement(_driver.FindElement(selector));
-            selectMonth.SelectByText(text);
-        }
-        private string GetBorderColor(By selector)
-        {
-            var element = GetElementBy(selector);
-            ScrollTo(element);
-            return element.GetCssValue("border-color");
-        }
-
 
         [Test]
         public void FillAndSubmitFormTest()
         {
+            _driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
+
             FillInput(By.Id("firstName"), "John");
             FillInput(By.Id("lastName"), "Doe");
             FillInput(By.Id("userEmail"), "johndoe@example.com");
@@ -99,6 +51,7 @@ namespace SeleniumDemoQA.Tests
         [Test]
         public void VerifyFormValidationTest()
         {
+            _driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
 
             ClickElement(By.Id("submit"));
 
@@ -117,10 +70,6 @@ namespace SeleniumDemoQA.Tests
             Assert.That(expectedErrorBorderColor, Is.EqualTo(mobileNumberBorderColor), "Mobile Number validation failed.");
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            _driver.Quit();
-        }
+        
     }
 }
