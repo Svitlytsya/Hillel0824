@@ -17,23 +17,17 @@ namespace SeleniumDemoQA.Tests
 
             //formPage.FillInput(By.Id("firstName"), "John");
             formPage.FillFirstName("John");
-            formPage.FillInput(By.Id("lastName"), "Doe");
-            formPage.FillInput(By.Id("userEmail"), "johndoe@example.com");
-            formPage.ClickElement(By.CssSelector("label[for='gender-radio-1']"));
-            formPage.FillInput(By.Id("userNumber"), "1234567890");            
-            formPage.ClickElement(By.Id("dateOfBirthInput"));
-            formPage.SelectByText(By.ClassName("react-datepicker__month-select"), "May");
-            formPage.SelectByText(By.ClassName("react-datepicker__year-select"), "1990");
-            formPage.ClickElement(By.CssSelector(".react-datepicker__day--015:not(.react-datepicker__day--outside-month)"));
-            formPage.FillInput(By.Id("subjectsInput"), "Maths");
-            formPage.GetElementBy(By.Id("subjectsInput")).SendKeys(Keys.Enter);
-            formPage.ClickElement(By.CssSelector("label[for='hobbies-checkbox-1']"));
-            formPage.FillInput(By.Id("currentAddress"), "123 Main Street, Anytown, USA");
-            formPage.ClickElement(By.Id("state"));
-            formPage.ClickElement(By.XPath("//div[text()='NCR']"));
-            formPage.ClickElement(By.Id("city"));
-            formPage.ClickElement(By.XPath("//div[text()='Delhi']"));
-            formPage.ClickElement(By.Id("submit"));
+            formPage.FillLastName("Doe");
+            formPage.FillEmail("johndoe@example.com");
+            formPage.SelectGender("Male");
+            formPage.FillMobileNumber ("1234567890");            
+            formPage.SelectDateOfBirth("15", "May", "1990");
+            formPage.FillSubject("Maths");
+            formPage.CheckHobby("Music");
+            formPage.FillCurrentAddress("123 Main Street, Anytown, USA");
+            formPage.SelectState("NCR");
+            formPage.SelectCity("Delhi");
+            formPage.SubmitButton();
 
             // Validate the Form Submission (e.g., check for the confirmation modal)
             //var confirmationModal = formPage.GetElementBy(By.Id("example-modal-sizes-title-lg"));
@@ -48,24 +42,22 @@ namespace SeleniumDemoQA.Tests
         [Test]
         public void VerifyFormValidationTest()
         {
+            string redBorderColor = "rgb(220, 53, 69)";
+            By firstNameInputBy = By.Id("firstName");
+            By lastNameInputBy = By.Id("lastName");
+            By emailInputBy = By.Id("userEmail");
+            By mobileNumberInputBy = By.Id("userNumber");
+
+
             _driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
             var formPage = new FormPage(_driver);
-           
-            formPage.ClickElement(By.Id("submit"));
 
-            string firstNameBorderColor = formPage.GetBorderColor(By.Id("firstName"));
-            string lastNameBorderColor = formPage.GetBorderColor(By.Id("lastName"));
-            string emailBorderColor = formPage.GetBorderColor(By.Id("userEmail"));
-            string mobileNumberBorderColor = formPage.GetBorderColor(By.Id("userNumber"));
-           
+            formPage.SubmitButton();
 
-            // Check if the border color indicates an error (commonly red)
-            string expectedErrorBorderColor = "rgb(220, 53, 69)"; 
-
-            Assert.That(expectedErrorBorderColor, Is.EqualTo(firstNameBorderColor), "First Name validation failed.");
-            Assert.That(expectedErrorBorderColor, Is.EqualTo(lastNameBorderColor), "Last Name validation failed.");
-            //Assert.That(expectedErrorBorderColor, Is.EqualTo(emailBorderColor), "Email validation failed.");
-            Assert.That(expectedErrorBorderColor, Is.EqualTo(mobileNumberBorderColor), "Mobile Number validation failed.");
+            Assert.That(formPage.GetElementBorderColor(firstNameInputBy), Is.EqualTo(redBorderColor), "First Name validation failed.");
+            Assert.That(formPage.GetElementBorderColor(lastNameInputBy), Is.EqualTo(redBorderColor), "Last Name validation failed.");
+            //Assert.That(formPage.GetElementBorderColor(emailInputBy), Is.EqualTo(redBorderColor), "Email validation failed.");
+            Assert.That(formPage.GetElementBorderColor(mobileNumberInputBy), Is.EqualTo(redBorderColor), "Mobile Number validation failed.");
         }
 
         
