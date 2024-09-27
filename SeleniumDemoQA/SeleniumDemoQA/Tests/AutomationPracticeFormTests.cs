@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools.V127.CSS;
 using OpenQA.Selenium.Support.UI;
+using SeleniumDemoQA.Models;
 using SeleniumDemoQA.Pages;
 
 namespace SeleniumDemoQA.Tests
@@ -12,14 +13,15 @@ namespace SeleniumDemoQA.Tests
         [Test]
         public void FillAndSubmitFormTest()
         {
-            _driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
+            
             var formPage = new FormPage(_driver);
 
             //formPage.FillInput(By.Id("firstName"), "John");
+            formPage.NavigateTo("https://demoqa.com/automation-practice-form");
             formPage.FillFirstName("John");
             formPage.FillLastName("Doe");
             formPage.FillEmail("johndoe@example.com");
-            formPage.SelectGender("Male");
+            formPage.SelectGender(Gender.Male);
             formPage.FillMobileNumber ("1234567890");            
             formPage.SelectDateOfBirth("15", "May", "1990");
             formPage.FillSubject("Maths");
@@ -49,15 +51,20 @@ namespace SeleniumDemoQA.Tests
             By mobileNumberInputBy = By.Id("userNumber");
 
 
-            _driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
+            
             var formPage = new FormPage(_driver);
-
+            formPage.NavigateTo("https://demoqa.com/automation-practice-form");
             formPage.SubmitButton();
+            Thread.Sleep(1000);
 
-            Assert.That(formPage.GetElementBorderColor(firstNameInputBy), Is.EqualTo(redBorderColor), "First Name validation failed.");
-            Assert.That(formPage.GetElementBorderColor(lastNameInputBy), Is.EqualTo(redBorderColor), "Last Name validation failed.");
-            //Assert.That(formPage.GetElementBorderColor(emailInputBy), Is.EqualTo(redBorderColor), "Email validation failed.");
-            Assert.That(formPage.GetElementBorderColor(mobileNumberInputBy), Is.EqualTo(redBorderColor), "Mobile Number validation failed.");
+            Assert.Multiple(() =>
+            {
+                Assert.That(formPage.GetElementBorderColor(firstNameInputBy), Is.EqualTo(redBorderColor), "First Name validation failed.");
+                Assert.That(formPage.GetElementBorderColor(lastNameInputBy), Is.EqualTo(redBorderColor), "Last Name validation failed.");
+                //Assert.That(formPage.GetElementBorderColor(emailInputBy), Is.EqualTo(redBorderColor), "Email validation failed.");
+                Assert.That(formPage.GetElementBorderColor(mobileNumberInputBy), Is.EqualTo(redBorderColor), "Mobile Number validation failed.");
+            });
+        
         }
 
         

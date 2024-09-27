@@ -14,23 +14,24 @@ namespace SeleniumDemoQA.Tests
         [Test, Description("Enter valid data in input fields, press the submit button and verify the output in the aftersubmit text area")]
         public void FillAndSubmitTextBoxTests()
         {
-            _driver.Navigate().GoToUrl("https://demoqa.com/text-box");
-            var formPage = new FormPage(_driver);
-
-            formPage.FillFullName("Dog Pulya");
-            formPage.FillUserEmail("pulyadog@gmail.com");
-            formPage.FillAddress("Varash city, Budivelnikiv street, building 3, apartment 333");
-            formPage.FillPermanentAddress("03549,Kyiv city, Zhylyanska street, building 1, apartment 111");
-
-
-            formPage.SubmitButton();
-
-            Assert.That(formPage.GetOutputFullName(), Is.EqualTo("Name:Dog Pulya"));
-            Assert.That(formPage.GetOutputUserEmail(), Is.EqualTo("Email:pulyadog@gmail.com"));
-            Assert.That(formPage.GetOutputAddress(), Is.EqualTo("Current Address :Varash city, Budivelnikiv street, building 3, apartment 333"));
-            Assert.That(formPage.GetOutputPermanentAddress(), Is.EqualTo("Permananet Address :03549,Kyiv city, Zhylyanska street, building 1, apartment 111"));
+            var textBoxPage = new TextBoxPage(_driver);
+            textBoxPage.NavigateTo("https://demoqa.com/automation-practice-form");
+            
+            textBoxPage.FillFullName("Dog Pulya");
+            textBoxPage.FillUserEmail("pulyadog@gmail.com");
+            textBoxPage.FillAddress("Varash city, Budivelnikiv street, building 3, apartment 333");
+            textBoxPage.FillPermanentAddress("03549,Kyiv city, Zhylyanska street, building 1, apartment 111");
 
 
+            textBoxPage.SubmitButton();
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(textBoxPage.GetOutputFullName(), Is.EqualTo("Name:Dog Pulya"));
+                Assert.That(textBoxPage.GetOutputUserEmail(), Is.EqualTo("Email:pulyadog@gmail.com"));
+                Assert.That(textBoxPage.GetOutputAddress(), Is.EqualTo("Current Address :Varash city, Budivelnikiv street, building 3, apartment 333"));
+                Assert.That(textBoxPage.GetOutputPermanentAddress(), Is.EqualTo("Permananet Address :03549,Kyiv city, Zhylyanska street, building 1, apartment 111"));
+            });
 
         }
 

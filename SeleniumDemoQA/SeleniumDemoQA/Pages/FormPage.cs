@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Events;
 using OpenQA.Selenium.Support.UI;
+using SeleniumDemoQA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,54 +11,13 @@ using System.Threading.Tasks;
 
 namespace SeleniumDemoQA.Pages
 {
-    internal class FormPage
+    internal class FormPage: BasePage
     {
-        public IWebDriver _driver;
-        public IJavaScriptExecutor _js;
-
         By confirmationModalElement = By.Id("example-modal-sizes-title-lg");
 
-        public FormPage(IWebDriver driver)
+        public FormPage(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
-            _js = (IJavaScriptExecutor)_driver;
 
-        }
-
-        public void ScrollTo(IWebElement element)
-        {
-            _js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
-        }
-
-        public IWebElement GetElementBy(By selector)
-        {
-            return _driver.FindElement(selector);
-        }
-
-        public void FillInput(By selector, string value)
-        {
-            var firstNameInput = GetElementBy(selector);
-            ScrollTo(firstNameInput);
-            firstNameInput.SendKeys(value);
-        }
-
-        public void ClickElement(By selector)
-        {
-            var element = GetElementBy(selector);
-            ScrollTo(element);
-            element.Click();
-        }
-
-        public void SelectByText(By selector, string text)
-        {
-            var selectMonth = new SelectElement(_driver.FindElement(selector));
-            selectMonth.SelectByText(text);
-        }
-        public string GetBorderColor(By selector)
-        {
-            var element = GetElementBy(selector);
-            ScrollTo(element);
-            return element.GetCssValue("border-color");
         }
 
         public void FillFirstName(string firstName)
@@ -100,17 +60,17 @@ namespace SeleniumDemoQA.Pages
             FillInput(By.Id("currentAddress"), currentAddress);
         }
 
-        //public void SelectGender(string gender)
+        //public void SelectGender(Gender gender)
         //{
         //    switch (gender)
         //    {
-        //        case "Male":
+        //        case Gender.Male:
         //        _driver.FindElement(By.CssSelector("label[for='gender-radio-1']")).Click();
         //        break;
-        //        case "Female":
+        //        case Gender.Female:
         //        _driver.FindElement(By.CssSelector("label[for='gender-radio-2']")).Click();
         //        break;
-        //        case "Other":
+        //        case Gender.Other:
         //        _driver.FindElement(By.CssSelector("label[for='gender-radio-2']")).Click();
         //        break;
         //        default:
@@ -120,19 +80,19 @@ namespace SeleniumDemoQA.Pages
 
         //}
 
-        public void SelectGender(string gender)
+        public void SelectGender(Gender gender)
         {
             By genderSelector;
 
-            switch (gender.ToLower())
+            switch (gender)
             {
-                case "male":
+                case Gender.Male:
                     genderSelector = By.XPath("//label[text()='Male']");
                     break;
-                case "female":
+                case Gender.Female:
                     genderSelector = By.XPath("//label[text()='Female']");
                     break;
-                case "other":
+                case Gender.Other:
                     genderSelector = By.XPath("//label[text()='Other']");
                     break;
                 default:
@@ -195,59 +155,12 @@ namespace SeleniumDemoQA.Pages
         {
             ClickElement(By.Id("submit"));
 
-
         }
 
         public string GetElementBorderColor(By element)
         {
             ScrollTo(_driver.FindElement(element));
             return _driver.FindElement(element).GetCssValue("border-color");
-
-        }
-
-        public void FillFullName(string fullName)
-        {
-            FillInput(By.Id("userName"), fullName);
-        }
-
-        public void FillUserEmail(string userEmail)
-        {
-            FillInput(By.Id("userEmail"), userEmail);
-        }
-
-
-        public void FillAddress(string currentAddress)
-        {
-            FillInput(By.CssSelector("#currentAddress.form-control"), currentAddress);
-        }
-
-        public void FillPermanentAddress(string permanentAddress)
-        {
-            FillInput(By.CssSelector("#permanentAddress.form-control"), permanentAddress);
-        }
-
-        public string GetOutputFullName()
-        {
-            return _driver.FindElement(By.Id("name")).Text;
-
-        }
-
-        public string GetOutputUserEmail()
-        {
-            return _driver.FindElement(By.Id("email")).Text;
-
-        }
-
-
-        public string GetOutputAddress()
-        {
-            return _driver.FindElement(By.CssSelector("#output #currentAddress.mb-1")).Text;
-
-        }
-
-        public string GetOutputPermanentAddress()
-        {
-            return _driver.FindElement(By.CssSelector("#output #permanentAddress.mb-1")).Text;
 
         }
 
