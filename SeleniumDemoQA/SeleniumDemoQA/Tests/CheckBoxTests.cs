@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumDemoQA.Tests
 {
-    internal class CheckBoxTests: BaseClass
+    public class CheckBoxTests: BaseClass
     {
         [Test]
         public void VerifyCheckBoxesCheckedAfterCheckAndExpandTheHome()
