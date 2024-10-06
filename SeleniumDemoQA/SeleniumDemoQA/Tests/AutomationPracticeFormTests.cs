@@ -15,9 +15,9 @@ namespace SeleniumDemoQA.Tests
         {
             
             var formPage = new FormPage(_driver);
-
-            //formPage.FillInput(By.Id("firstName"), "John");
             formPage.NavigateTo("https://demoqa.com/automation-practice-form");
+            //formPage.FillInput(By.Id("firstName"), "John");
+
             formPage.FillFirstName("John");
             formPage.FillLastName("Doe");
             formPage.FillEmail("johndoe@example.com");

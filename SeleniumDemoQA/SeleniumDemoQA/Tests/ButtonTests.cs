@@ -2,63 +2,56 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using SeleniumDemoQA.Pages;
 using System;
+
 
 namespace SeleniumDemoQA.Tests
 {
-    public class ButtonTests
+    public class ButtonTests: BaseClass
     {
-        private ChromeDriver _driver;
-
+        ButtonPage buttonPage;
+        
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-          
+            buttonPage = new ButtonPage(_driver);
+            buttonPage.NavigateTo("https://demoqa.com/buttons");
 
-            _driver = new ChromeDriver();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _driver.Navigate().GoToUrl("https://demoqa.com/buttons");
         }
-
-        [Test]
+        
+            [Test]
         public void DoubleClickButtonTest()
         {
-            var doubleClickButton = _driver.FindElement(By.Id("doubleClickBtn"));
-            Actions actions = new Actions(_driver);
-            actions.DoubleClick(doubleClickButton).Perform();
-
-            var doubleClickMessage = _driver.FindElement(By.Id("doubleClickMessage"));
-            Assert.IsTrue(doubleClickMessage.Displayed);
-            Assert.AreEqual("You have done a double click", doubleClickMessage.Text);
+            
+            buttonPage.DoubleClickTheDoubleClickButton();
+           
+            Assert.That(buttonPage.IsDoubleClickButtonMessageDisplayed(), Is.True);
+            Assert.That(buttonPage.GetDoubleClickButtonMessage(), Is.EqualTo("You have done a double click"));
         }
 
         [Test]
         public void RightClickButtonTest()
         {
-            var rightClickButton = _driver.FindElement(By.Id("rightClickBtn"));
-            Actions actions = new Actions(_driver);
-            actions.ContextClick(rightClickButton).Perform();
+       
+            buttonPage.RightClickTheRightClickButton();
 
-            var rightClickMessage = _driver.FindElement(By.Id("rightClickMessage"));
-            Assert.IsTrue(rightClickMessage.Displayed);
-            Assert.AreEqual("You have done a right click", rightClickMessage.Text);
+            Assert.That(buttonPage.IsRightClickButtonMessageDisplayed(), Is.True);
+            Assert.That(buttonPage.GetRightClickButtonMessage(), Is.EqualTo("You have done a right click"));
         }
 
         [Test]
         public void ClickMeButtonTest()
         {
-            var clickMeButton = _driver.FindElement(By.XPath("//button[text()='Click Me']"));
-            clickMeButton.Click();
+            //var clickMeButton = _driver.FindElement(By.XPath("//button[text()='Click Me']"));
+            buttonPage.ClickTheClickMeButton();
+
 
             var dynamicClickMessage = _driver.FindElement(By.Id("dynamicClickMessage"));
-            Assert.IsTrue(dynamicClickMessage.Displayed);
-            Assert.AreEqual("You have done a dynamic click", dynamicClickMessage.Text);
+            Assert.That(buttonPage.IsClickMeButtonMessageDisplayed(), Is.True);
+            Assert.That(buttonPage.GetClickMeButtonMessage(), Is.EqualTo("You have done a dynamic click"));
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            _driver.Quit();
-        }
+    
     }
 }
