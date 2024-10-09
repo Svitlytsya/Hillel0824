@@ -26,7 +26,7 @@ namespace SeleniumDemoQA.Pages
 
         public void ScrollTo(IWebElement element)
         {
-            _js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+            _js.ExecuteScript("arguments[0].scrollIntoView(false);", element);
         }
 
         public IWebElement GetElementBy(By selector)
