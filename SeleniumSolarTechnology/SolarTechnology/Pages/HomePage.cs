@@ -10,7 +10,7 @@ namespace SolarTechnology.Pages
 {
     internal class HomePage: BasePage
     {
-        private By loader = By.Id("p_prldr");
+        private string pageUrl = "https://solartechnology.com.ua/shop";
         private By solarPanelsLink = By.CssSelector(".list-inline [href='/shop/solar-panels']");
         private By cableSwitchingLink = By.CssSelector(".list-inline [href='/shop/solar-cable']");
         //private By cartIcon = By.CssSelector("cart-icon");
@@ -21,16 +21,11 @@ namespace SolarTechnology.Pages
 
         public void Open()
         {
-            NavigateTo("https://solartechnology.com.ua/shop");
+            NavigateTo(pageUrl);
 
             WaitForLoader();
         }
 
-        public void WaitForLoader()
-        {
-            WaitForElementVisible(loader);
-            WaitForElementInvisible(loader);
-        }
 
         public void OpenSolarPanels()
         {
@@ -47,7 +42,7 @@ namespace SolarTechnology.Pages
 
         public bool IsOnHomePage()
         {
-            return _driver.Url.Equals("https://solartechnology.com.ua/shop");
+            return _driver.Url.Equals(pageUrl);
         }
 
     }

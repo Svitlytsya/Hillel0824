@@ -18,8 +18,8 @@ namespace SolarTechnology.Tests
             homePage.Open();
             homePage.OpenSolarPanels();
             var countProductsBefore = catalogPage.CountProductItems();
-                catalogPage.OpenFilters();
-                catalogPage.CheckBrand("JA Solar");
+            catalogPage.OpenFilters();
+            catalogPage.CheckBrand("JA Solar");
             var countProductsAfter = catalogPage.CountProductItems();
 
             Assert.That(countProductsAfter, Is.LessThan(countProductsBefore), "The count of product items is not less after the filtering");

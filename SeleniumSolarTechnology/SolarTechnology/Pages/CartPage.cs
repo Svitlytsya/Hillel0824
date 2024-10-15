@@ -9,7 +9,6 @@ namespace SolarTechnology.Pages
 {
     internal class CartPage: BasePage
     {
-        private By loader = By.Id("p_prldr");
         private By orderButton = By.CssSelector(".buttons [href='/cart']");
         private By removeItemIcon = By.CssSelector(".remove-from-cart>.material-icons");
 
@@ -17,13 +16,6 @@ namespace SolarTechnology.Pages
         public CartPage(IWebDriver driver) : base(driver)
         {
         }
-
-        public void WaitForLoader()
-        {
-            WaitForElementVisible(loader);
-            WaitForElementInvisible(loader);
-        }
-
 
         public void MakeOrder()
         {

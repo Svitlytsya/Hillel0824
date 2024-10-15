@@ -13,6 +13,8 @@ namespace SolarTechnology.Pages
         public IWebDriver _driver;
         public IJavaScriptExecutor _js;
 
+        private By loader = By.Id("p_prldr");
+
         public BasePage(IWebDriver driver)
         {
             _driver = driver;
@@ -22,6 +24,12 @@ namespace SolarTechnology.Pages
         public void NavigateTo(string link)
         {
             _driver.Navigate().GoToUrl(link);
+        }
+
+        public void WaitForLoader()
+        {
+            WaitForElementVisible(loader);
+            WaitForElementInvisible(loader);
         }
 
         public void ScrollTo(IWebElement element)

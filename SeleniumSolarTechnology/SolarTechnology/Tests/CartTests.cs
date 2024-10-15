@@ -18,9 +18,9 @@ namespace SolarTechnology.Tests
 
             homePage.Open();
             homePage.OpenCableAndSwitching();
-                catalogPage.AddProductItemToCart(1);
-                        cartPage.MakeOrder();
-                        cartPage.RemoveProductItemFromCart(0);
+            catalogPage.AddProductItemToCart(1);
+            cartPage.MakeOrder();
+            cartPage.RemoveProductItemFromCart(0);
             Assert.That(homePage.IsOnHomePage(), Is.True);
         }
 

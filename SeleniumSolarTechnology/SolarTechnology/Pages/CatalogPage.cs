@@ -9,7 +9,6 @@ namespace SolarTechnology.Pages
 {
     internal class CatalogPage : BasePage
     {
-        private By loader = By.Id("p_prldr");
         private By filterButton = By.CssSelector(".filter-button");
         private By productItem = By.CssSelector(".product-block .prod-holder");
         private By addToCartBtn = By.CssSelector(".add-product-to-cart");
@@ -20,11 +19,6 @@ namespace SolarTechnology.Pages
         {
         }
 
-        public void WaitForLoader()
-        {
-            WaitForElementVisible(loader);
-            WaitForElementInvisible(loader);
-        }
 
         public void OpenFilters()
         {
@@ -51,7 +45,6 @@ namespace SolarTechnology.Pages
             var product = productItems[productIndex];
             var addCartButton = product.FindElement(addToCartBtn);
 
-            // Натиснути кнопку
             addCartButton.Click();
 
             //product.Click();

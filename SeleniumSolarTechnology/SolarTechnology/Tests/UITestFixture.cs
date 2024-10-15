@@ -11,6 +11,9 @@ namespace SolarTechnology.Tests
 {
     public class UITestFixture
     {
+        public IWebDriver _driver;
+        public IJavaScriptExecutor _js;
+
         [SetUp]
         public void Setup()
         {
@@ -26,11 +29,6 @@ namespace SolarTechnology.Tests
         {
             _driver.Quit();
         }
-
-
-        public IWebDriver _driver;
-        public IJavaScriptExecutor _js;
-
 
     }
 }
