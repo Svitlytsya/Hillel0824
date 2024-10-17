@@ -20,6 +20,13 @@ namespace SeleniumDemoQA.Pages
 
         }
 
+        public void Open()
+        {
+            var pageUrl = "https://demoqa.com/automation-practice-form";
+            NavigateTo(pageUrl);
+
+        }
+
         public void FillFirstName(string firstName)
         {
             FillInput(By.Id("firstName"), firstName);

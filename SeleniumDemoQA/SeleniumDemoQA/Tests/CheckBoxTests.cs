@@ -13,7 +13,7 @@ namespace SeleniumDemoQA.Tests
         public void VerifyCheckBoxesCheckedAfterCheckAndExpandTheHome()
         {
             var checkBoxPage = new CheckBoxPage(_driver);
-            checkBoxPage.NavigateTo("https://demoqa.com/checkbox");
+            checkBoxPage.Open();
 
             checkBoxPage.ExpandHomeFolder();
 

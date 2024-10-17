@@ -19,10 +19,6 @@ namespace SeleniumDemoQA.Pages
             _js = (IJavaScriptExecutor)_driver;
         }
 
-        public void NavigateTo(string link)
-        {
-            _driver.Navigate().GoToUrl(link);
-        }
 
         public void ScrollTo(IWebElement element)
         {

@@ -16,7 +16,7 @@ namespace SeleniumDemoQA.Tests
         public void SetUp()
         {
             buttonPage = new ButtonPage(_driver);
-            buttonPage.NavigateTo("https://demoqa.com/buttons");
+            buttonPage.Open();
 
         }
         

@@ -18,6 +18,23 @@ namespace SeleniumDemoQA
                 return wait.Until(drv => drv.FindElement(by));
             }
             return driver.FindElement(by);
+      
         }
+
+        public static void NavigateTo(this IWebDriver driver, string url)
+        {
+            driver.Navigate().GoToUrl(url);
+        }
+
+
+
+
+
+
+
+
     }
+
+
+
 }

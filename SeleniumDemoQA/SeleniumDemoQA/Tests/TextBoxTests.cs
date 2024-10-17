@@ -15,7 +15,7 @@ namespace SeleniumDemoQA.Tests
         public void FillAndSubmitTextBoxTests()
         {
             var textBoxPage = new TextBoxPage(_driver);
-            textBoxPage.NavigateTo("https://demoqa.com/automation-practice-form");
+            textBoxPage.Open();
             
             textBoxPage.FillFullName("Dog Pulya");
             textBoxPage.FillUserEmail("pulyadog@gmail.com");

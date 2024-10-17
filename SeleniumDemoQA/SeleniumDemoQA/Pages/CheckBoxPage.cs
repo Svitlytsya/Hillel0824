@@ -17,6 +17,13 @@ namespace SeleniumDemoQA.Pages
         By homeFolderCheckboxLabel = By.XPath("//label[@for='tree-node-home']");
         By homeFolderToggleButton = By.XPath("//button[@title='Toggle']");
 
+        public void Open()
+        {
+            var pageUrl = "https://demoqa.com/checkbox";
+            NavigateTo(pageUrl);
+
+        }
+
         public void ExpandHomeFolder()
         {
             var toggleButton = GetElementBy(homeFolderToggleButton);

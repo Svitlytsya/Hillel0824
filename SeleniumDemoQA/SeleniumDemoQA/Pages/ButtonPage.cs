@@ -26,6 +26,14 @@ namespace SeleniumDemoQA.Pages
             actions = new Actions(driver);
         }
 
+        public void Open()
+        {
+            var pageUrl = "https://demoqa.com/buttons";
+            NavigateTo(pageUrl);
+
+        }
+
+
         public void DoubleClickTheDoubleClickButton() 
         {
             var doubleClickButton = GetElementBy(doubleClickButtonSelector);

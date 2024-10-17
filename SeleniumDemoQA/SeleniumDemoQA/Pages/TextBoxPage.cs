@@ -14,6 +14,13 @@ namespace SeleniumDemoQA.Pages
 
         }
 
+        public void Open()
+        {
+            var pageUrl = "https://demoqa.com/text-box";
+            NavigateTo(pageUrl);
+
+        }
+
         public void FillFullName(string fullName)
         {
             FillInput(By.Id("userName"), fullName);

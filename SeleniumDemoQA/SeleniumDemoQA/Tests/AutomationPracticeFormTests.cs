@@ -15,7 +15,7 @@ namespace SeleniumDemoQA.Tests
         {
             
             var formPage = new FormPage(_driver);
-            formPage.NavigateTo("https://demoqa.com/automation-practice-form");
+            formPage.Open();
             //formPage.FillInput(By.Id("firstName"), "John");
 
             formPage.FillFirstName("John");
@@ -53,7 +53,7 @@ namespace SeleniumDemoQA.Tests
 
             
             var formPage = new FormPage(_driver);
-            formPage.NavigateTo("https://demoqa.com/automation-practice-form");
+            formPage.Open();
             formPage.SubmitButton();
             Thread.Sleep(1000);
 
