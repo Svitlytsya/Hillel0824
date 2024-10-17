@@ -9,9 +9,9 @@ namespace CSharpBasics.NUnitHomeworks
     internal class GenericHomework
     {
         // TODO: Implement GetParameterType so that test pass
-        public string GetParameterType(object noNoNo_objectTypeIsNotAcceptable)
+        public string GetParameterType<T>(T parametr)
         {
-            return "Change me";
+            return $"Data type: {parametr.GetType()}";
         }
 
 
