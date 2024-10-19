@@ -8,54 +8,56 @@ using System.Threading.Tasks;
 
 namespace SeleniumDemoQA.Pages
 {
-    internal class SolarPage: BasePage
+    internal class SolarPage
     {
         private By loader = By.Id("p_prldr");
         private By solarPanelsLink = By.CssSelector(".list-inline [href='/shop/solar-panels']");
         private By filterButton = By.CssSelector(".filter-button");
         private By productTitle = By.CssSelector(".card-content .list-product-title");
 
-
-        public SolarPage(IWebDriver driver) : base(driver)
+        private IWebDriver _driver;
+        
+        public SolarPage(IWebDriver driver) 
         {
+            _driver = driver;
         }
 
         public void Open()
         {
-            NavigateTo("https://solartechnology.com.ua/shop");
+            _driver.NavigateTo("https://solartechnology.com.ua/shop");
 
             WaitForLoader();
         }
 
         public void WaitForLoader()
         {
-            WaitForElementVisible(loader);
-            WaitForElementInvisible(loader);
+           _driver.WaitForElementVisible(loader);
+           _driver.WaitForElementInvisible(loader);
         }
 
         public void OpenSolarPanels()
         {
-            WaitAndClickElement(solarPanelsLink);
+            _driver.WaitAndClickElement(solarPanelsLink);
 
             WaitForLoader();
         }
 
         public void OpenFilters()
         {
-            WaitAndClickElement(filterButton);
+            _driver.WaitAndClickElement(filterButton);
         }
 
         public void CheckBrand(string brand)
         {
             var brandCheckbox = By.XPath($"//*[@id='checkbox-brand']/following-sibling::span[text()='{brand}']");
-            WaitAndClickElement(brandCheckbox);
+            _driver.WaitAndClickElement(brandCheckbox);
 
             WaitForLoader();
         }
 
         public string GetFirstProductTitleText()
         {
-            return FindElement(productTitle).Text;
+            return _driver.FindElement(productTitle).Text;
         }
 
 

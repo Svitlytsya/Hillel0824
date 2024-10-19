@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace SeleniumDemoQA.Pages
 {
-    internal class CheckBoxPage: BasePage
+    internal class CheckBoxPage
     {
-        public CheckBoxPage(IWebDriver driver) : base(driver)
+        private IWebDriver _driver;
+
+        public CheckBoxPage(IWebDriver driver)
         {
+            _driver = driver;
         }
 
         //By homeFolderCheckbox = By.XPath("//label[@for='tree-node-home']/span[@class='rct-checkbox']");
@@ -20,27 +23,27 @@ namespace SeleniumDemoQA.Pages
         public void Open()
         {
             var pageUrl = "https://demoqa.com/checkbox";
-            NavigateTo(pageUrl);
+            _driver.NavigateTo(pageUrl);
 
         }
 
         public void ExpandHomeFolder()
         {
-            var toggleButton = GetElementBy(homeFolderToggleButton);
-            ScrollTo(toggleButton);
+            var toggleButton = _driver.GetElementBy(homeFolderToggleButton);
+            _driver.ScrollTo(toggleButton);
             toggleButton.Click();
         }
 
         public void CheckHomeCheckBox()
         {
-            var homeCheckboxLabel = GetElementBy(homeFolderCheckboxLabel);
-            ScrollTo(homeCheckboxLabel);
+            var homeCheckboxLabel = _driver.GetElementBy(homeFolderCheckboxLabel);
+            _driver.ScrollTo(homeCheckboxLabel);
             homeCheckboxLabel.Click();
             
         }
         public bool IsHomeCheckBoxChecked()
         {
-            var homeCheckboxInput = GetElementBy(By.Id("tree-node-home"));
+            var homeCheckboxInput = _driver.GetElementBy(By.Id("tree-node-home"));
             return homeCheckboxInput.Selected;
         }
 

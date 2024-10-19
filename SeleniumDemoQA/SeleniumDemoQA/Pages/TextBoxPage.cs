@@ -7,38 +7,40 @@ using System.Threading.Tasks;
 
 namespace SeleniumDemoQA.Pages
 {
-    internal class TextBoxPage: BasePage    
+    internal class TextBoxPage    
     {
-        public TextBoxPage(IWebDriver driver) : base(driver)
-        {
+        private IWebDriver _driver;
 
+        public TextBoxPage(IWebDriver driver)
+        {
+            _driver = driver;
         }
 
         public void Open()
         {
             var pageUrl = "https://demoqa.com/text-box";
-            NavigateTo(pageUrl);
+            _driver.NavigateTo(pageUrl);
 
         }
 
         public void FillFullName(string fullName)
         {
-            FillInput(By.Id("userName"), fullName);
+            _driver.FillInput(By.Id("userName"), fullName);
         }
 
         public void FillUserEmail(string userEmail)
         {
-            FillInput(By.Id("userEmail"), userEmail);
+            _driver.FillInput(By.Id("userEmail"), userEmail);
         }
 
         public void FillAddress(string currentAddress)
         {
-            FillInput(By.CssSelector("#currentAddress.form-control"), currentAddress);
+            _driver.FillInput(By.CssSelector("#currentAddress.form-control"), currentAddress);
         }
 
         public void FillPermanentAddress(string permanentAddress)
         {
-            FillInput(By.CssSelector("#permanentAddress.form-control"), permanentAddress);
+            _driver.FillInput(By.CssSelector("#permanentAddress.form-control"), permanentAddress);
         }
 
         public string GetOutputFullName()
@@ -67,7 +69,7 @@ namespace SeleniumDemoQA.Pages
 
         public void SubmitButton()
         {
-            ClickElement(By.Id("submit"));
+            _driver.ClickElement(By.Id("submit"));
 
         }
 
