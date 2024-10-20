@@ -11,18 +11,27 @@ using System.Threading.Tasks;
 
 namespace SeleniumDemoQA.Pages
 {
-    internal class FormPage: BasePage
+    internal class FormPage
     {
         By confirmationModalElement = By.Id("example-modal-sizes-title-lg");
 
-        public FormPage(IWebDriver driver) : base(driver)
+        private IWebDriver _driver;
+
+        public FormPage(IWebDriver driver)
         {
+            _driver = driver;
+        }
+
+        public void Open()
+        {
+            var pageUrl = "https://demoqa.com/automation-practice-form";
+            _driver.NavigateTo(pageUrl);
 
         }
 
         public void FillFirstName(string firstName)
         {
-            FillInput(By.Id("firstName"), firstName);
+            _driver.FillInput(By.Id("firstName"), firstName);
         }
         internal bool IsConfirmationModalDisplayed()
         {
@@ -35,29 +44,29 @@ namespace SeleniumDemoQA.Pages
 
         public void FillLastName(string lastName)
         {
-            FillInput(By.Id("lastName"), lastName);
+            _driver.FillInput(By.Id("lastName"), lastName);
         }
 
         public void FillEmail(string email)
         {
-            FillInput(By.Id("userEmail"), email);
+            _driver.FillInput(By.Id("userEmail"), email);
         }
 
         public void FillMobileNumber(string mobileNumber)
         {
-            FillInput(By.Id("userNumber"), mobileNumber);
+            _driver.FillInput(By.Id("userNumber"), mobileNumber);
         }
 
         public void FillSubject(string subject)
         {
-            FillInput(By.Id("subjectsInput"), subject);
-            GetElementBy(By.Id("subjectsInput")).SendKeys(Keys.Enter);
+            _driver.FillInput(By.Id("subjectsInput"), subject);
+            _driver.GetElementBy(By.Id("subjectsInput")).SendKeys(Keys.Enter);
 
         }
 
         public void FillCurrentAddress(string currentAddress)
         {
-            FillInput(By.Id("currentAddress"), currentAddress);
+            _driver.FillInput(By.Id("currentAddress"), currentAddress);
         }
 
         //public void SelectGender(Gender gender)
@@ -99,20 +108,16 @@ namespace SeleniumDemoQA.Pages
                     throw new ArgumentException($"Unknown gender: {gender}");
             }
 
-            ClickElement(genderSelector);
+            _driver.ClickElement(genderSelector);
         }
 
         public void SelectDateOfBirth(string day, string month, string year)
         {
-            ClickElement(By.Id("dateOfBirthInput"));
-            var monthDropdown = new SelectElement(GetElementBy(By.ClassName("react-datepicker__month-select")));
-            monthDropdown.SelectByText(month);
-            var yearDropdown = new SelectElement(GetElementBy(By.ClassName("react-datepicker__year-select")));
-            yearDropdown.SelectByText(year);
-            //var dayElement = GetElementBy(By.XPath($"//div[contains(@class, 'react-datepicker__day') and text()='{day}']"));
-            //dayElement.Click();
+            _driver.ClickElement(By.Id("dateOfBirthInput"));
+            _driver.SelectByText(By.ClassName("react-datepicker__month-select"), month);
+            _driver.SelectByText(By.ClassName("react-datepicker__year-select"), year);
             By dayPickerBy = By.CssSelector($".react-datepicker__day--0{day}:not(.react-datepicker__day--outside-month)");
-            ClickElement(dayPickerBy);
+            _driver.ClickElement(dayPickerBy);
 
         }
 
@@ -139,27 +144,27 @@ namespace SeleniumDemoQA.Pages
         public void SelectState(string state)
         {
             By stateDropdownBy = By.Id("state");
-            ClickElement(stateDropdownBy);
-            ClickElement(By.XPath($"//div[text()='{state}']"));
+            _driver.ClickElement(stateDropdownBy);
+            _driver.ClickElement(By.XPath($"//div[text()='{state}']"));
         }
 
         public void SelectCity(string city)
         {
             By cityDropdownBy = By.Id("city");
-            ClickElement(cityDropdownBy);
-            ClickElement(By.XPath($"//div[text()='{city}']"));
+            _driver.ClickElement(cityDropdownBy);
+            _driver.ClickElement(By.XPath($"//div[text()='{city}']"));
 
         }
    
         public void SubmitButton()
         {
-            ClickElement(By.Id("submit"));
+            _driver.ClickElement(By.Id("submit"));
 
         }
 
         public string GetElementBorderColor(By element)
         {
-            ScrollTo(_driver.FindElement(element));
+            _driver.ScrollTo(_driver.FindElement(element));
             return _driver.FindElement(element).GetCssValue("border-color");
 
         }

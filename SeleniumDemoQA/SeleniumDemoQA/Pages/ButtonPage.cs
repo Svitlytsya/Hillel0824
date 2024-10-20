@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumDemoQA.Pages
 {
-    internal class ButtonPage: BasePage
+    internal class ButtonPage 
     {
         Actions actions;
         By doubleClickButtonSelector = By.Id("doubleClickBtn");
@@ -20,31 +20,40 @@ namespace SeleniumDemoQA.Pages
         By clickMeButtonSelector = By.XPath("//button[text()='Click Me']");
         By clickMeMessageSelector = By.Id("dynamicClickMessage");
 
+        private IWebDriver _driver;
 
-        public ButtonPage(IWebDriver driver) : base(driver)
+        public ButtonPage(IWebDriver driver)
         {
-            actions = new Actions(driver);
+            _driver = driver;
         }
+
+        public void Open()
+        {
+            var pageUrl = "https://demoqa.com/buttons";
+            _driver.NavigateTo(pageUrl);
+
+        }
+
 
         public void DoubleClickTheDoubleClickButton() 
         {
-            var doubleClickButton = GetElementBy(doubleClickButtonSelector);
+            var doubleClickButton = _driver.GetElementBy(doubleClickButtonSelector);
             actions.DoubleClick(doubleClickButton).Perform();
         } 
         public string GetDoubleClickButtonMessage() 
         {
-            var doubleClickMessage = GetElementBy(doubleClickMessageSelector);
+            var doubleClickMessage = _driver.GetElementBy(doubleClickMessageSelector);
             return doubleClickMessage.Text;
 
         }   
         public bool IsDoubleClickButtonMessageDisplayed() 
         {
-           var doubleClickMessage = GetElementBy(doubleClickMessageSelector);
+           var doubleClickMessage = _driver.GetElementBy(doubleClickMessageSelector);
            return doubleClickMessage.Displayed;
         } 
         public void RightClickTheRightClickButton() 
         {
-            var rightClickButton = GetElementBy(rightClickButtonSelector);
+            var rightClickButton = _driver.GetElementBy(rightClickButtonSelector);
             actions.ContextClick(rightClickButton).Perform();
 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
@@ -54,20 +63,20 @@ namespace SeleniumDemoQA.Pages
         
         public string GetRightClickButtonMessage() 
         {
-            var rightClickMessage = GetElementBy(rightClickMessageSelector);
+            var rightClickMessage = _driver.GetElementBy(rightClickMessageSelector);
             return rightClickMessage.Text;
 
         }   
         
         public bool IsRightClickButtonMessageDisplayed() 
         {
-           var rightClickMessage = GetElementBy(rightClickMessageSelector);
+           var rightClickMessage = _driver.GetElementBy(rightClickMessageSelector);
            return rightClickMessage.Displayed;
         }
 
         public void ClickTheClickMeButton()
         {
-            var ClickMeButton = GetElementBy(clickMeButtonSelector);
+            var ClickMeButton = _driver.GetElementBy(clickMeButtonSelector);
             actions.Click(ClickMeButton).Perform();
 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
@@ -77,14 +86,14 @@ namespace SeleniumDemoQA.Pages
 
         public string GetClickMeButtonMessage()
         {
-            var ClickMeMessage = GetElementBy(clickMeMessageSelector);
+            var ClickMeMessage = _driver.GetElementBy(clickMeMessageSelector);
             return ClickMeMessage.Text;
 
         }
 
         public bool IsClickMeButtonMessageDisplayed()
         {
-            var ClickMeMessage = GetElementBy(clickMeMessageSelector);
+            var ClickMeMessage = _driver.GetElementBy(clickMeMessageSelector);
             return ClickMeMessage.Displayed;
         }
 
