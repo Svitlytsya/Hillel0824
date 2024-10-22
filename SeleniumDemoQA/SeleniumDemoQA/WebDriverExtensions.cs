@@ -87,6 +87,27 @@ namespace SeleniumDemoQA
             wait.Until(d => d.FindElement(by).Displayed && d.FindElement(by).Enabled);
         }
 
+        public static void ClickOnTableActionElement(this IWebDriver driver, By selector)
+        {
+            var element = driver.GetElementBy(selector);
+            driver.ScrollTo(element);
+
+            // Перевірка на видимість і доступність елемента
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(d => element.Displayed && element.Enabled);
+
+            try
+            {
+                element.Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                // Виконати клік через JavaScript, якщо звичайний клік не працює
+                ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", element);
+            }
+        }
+
+
     }
 
 
