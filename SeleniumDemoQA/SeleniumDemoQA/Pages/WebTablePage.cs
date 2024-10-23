@@ -90,7 +90,8 @@ namespace SeleniumDemoQA.Pages
         public void DeleteRowsByFirstName(string firstName)
         {
             By deleteRowBtn = By.XPath($"//*[@class='rt-tbody']//*[@class='rt-tr-group']//*[contains(@class,'rt-tr') and *[@class='rt-td' and text()='{firstName}']]//span[@title='Delete']");
-            _driver.ClickOnTableActionElement(deleteRowBtn);
+            _driver.WaitForElementEnabled(deleteRowBtn);
+            _driver.ClickWithJs(deleteRowBtn);
 
         }
 

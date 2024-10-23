@@ -26,9 +26,8 @@ namespace SeleniumDemoQA.Tests
             webTablePage.FillDepartmentInput("Finance");
             webTablePage.SubmitButton();
 
-
-            int expectedRowCount = webTablePage.GetDataRowsCount();
-            //Assert.That(expectedRowCount, Is.EqualTo(initialRowCount + 1), "The row count has not incresed in the web table");
+            int rowsCountAfter = webTablePage.GetDataRowsCount();
+            Assert.That(rowsCountAfter, Is.EqualTo(initialRowCount + 1), "The row count has not incresed in the web table");
 
             string addedRowText = webTablePage.GetRowText(3);
             Assert.That(addedRowText, Does.Contain("Elchin"));
@@ -53,8 +52,8 @@ namespace SeleniumDemoQA.Tests
 
             webTablePage.DeleteRowsByFirstName(firstName);
 
-            int expectedRowCount = webTablePage.GetDataRowsCount();
-            Assert.That(expectedRowCount, Is.EqualTo(initialRowCount - 1));
+            int rowsCountAfter = webTablePage.GetDataRowsCount();
+            Assert.That(rowsCountAfter, Is.EqualTo(initialRowCount - 1));
             
             Assert.That(webTablePage.IsRowByFirstNameDisplayed(firstName), Is.False);
 
