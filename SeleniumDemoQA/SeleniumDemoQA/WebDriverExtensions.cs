@@ -87,8 +87,15 @@ namespace SeleniumDemoQA
             wait.Until(d => d.FindElement(by).Displayed && d.FindElement(by).Enabled);
         }
 
+        public static void ClickWithJs(this IWebDriver driver, By selector)
+        {
+            var element = driver.GetElementBy(selector);
+    
+           // Виконати клік через JavaScript, якщо звичайний клік не працює
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", element);
+          
+        }
+
     }
-
-
 
 }
