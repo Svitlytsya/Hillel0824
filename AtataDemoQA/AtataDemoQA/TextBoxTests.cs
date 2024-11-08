@@ -18,7 +18,7 @@ namespace AtataDemoQA
             Submit.Click().
                 FullNameOutput.Should.Be("Name:Dog Pulya").
                 EmailOutput.Should.Be("Email:pulyadog@ask.com").
-                CurrentAddressOutput.Should.Be("Current Address :Varash city, Budivelnikiv street, building 3, apartment 333").
+                CurrentAddressOutput.Should.Be("Current Address :Varash city, Budivelnikiv street, building 10, apartment 123").
                 PermanentAddressOutput.Should.Be("Permananet Address :03549,Kyiv city, Zhylyanska street, building 1, apartment 111");
 
         }
