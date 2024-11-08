@@ -15,6 +15,7 @@ namespace SeleniumDemoQA.Tests
         public void Setup()
         {
             var options = new ChromeOptions();
+            options.AddArguments("headless");
             options.AddArgument("window-size=1400,1200"); // Set desired resolution
             _driver = new ChromeDriver(options);
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
