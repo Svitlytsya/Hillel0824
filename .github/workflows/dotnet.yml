@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'SeleniumDemoQA/ÑSharpBasics/**'
+      - 'SeleniumDemoQA/CSharpBasics/**'
   pull_request:
     branches: [ "main" ]
     paths:
-      - 'SeleniumDemoQA/ÑSharpBasics/**'
+      - 'SeleniumDemoQA/CSharpBasics/**'
 
 jobs:
   build:
