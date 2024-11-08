@@ -16,12 +16,12 @@ namespace CSharpBasics.NUnitHomeworks
         //    y = temp;
         //}
 
-        //public static void Swap(ref string a, ref string b) 
-        //{
-        //    string temp = a;
-        //    a = b;
-        //    b = temp;
-        //}
+        public static void Swap(ref string a, ref string b)
+        {
+            string temp = a;
+            a = b;
+            b = temp;
+        }
 
         public static void Swap<T>(ref T a, ref T b)
         {
