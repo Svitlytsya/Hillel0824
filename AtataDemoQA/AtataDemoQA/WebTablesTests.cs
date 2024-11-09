@@ -34,7 +34,7 @@ namespace AtataDemoQA
                 People.Rows[row => row.FirstName.Content.Value.Equals("Elchin")].LastName.Should.Be("Sangu").
                 People.Rows[row => row.FirstName.Content.Value.Equals("Elchin")].Age.Should.Be("41").
                 People.Rows[row => row.FirstName.Content.Value.Equals("Elchin")].Email.Should.Be("elchin@ask.com").
-                People.Rows[row => row.FirstName.Content.Value.Equals("Elchin")].Salary.Should.Be("50000").
+                People.Rows[row => row.FirstName.Content.Value.Equals("Elchin")].Salary.Should.Be("30000").
                 People.Rows[row => row.FirstName.Content.Value.Equals("Elchin")].Department.Should.Be("Finance");
 
         }
