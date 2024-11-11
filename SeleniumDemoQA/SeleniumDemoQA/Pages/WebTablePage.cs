@@ -89,6 +89,7 @@ namespace SeleniumDemoQA.Pages
 
         public void DeleteRowsByFirstName(string firstName)
         {
+            //By deleteButton = By.XPath($"//div[contains(@class, 'rt-td') and text()='{firstName}']/following-sibling::div//span[@title='Delete']");
             By deleteRowBtn = By.XPath($"//*[@class='rt-tbody']//*[@class='rt-tr-group']//*[contains(@class,'rt-tr') and *[@class='rt-td' and text()='{firstName}']]//span[@title='Delete']");
             _driver.WaitForElementEnabled(deleteRowBtn);
             _driver.ClickWithJs(deleteRowBtn);
@@ -99,7 +100,8 @@ namespace SeleniumDemoQA.Pages
         {
             try
             {
-                By rowWithFirstName = By.XPath($"//div[contains(@class, 'rt-td') and text()='{firstName}']");
+                //By rowWithFirstName = By.XPath($"//*[@class='rt-tbody']//*[@class='rt-tr-group']//*[contains(@class,'rt-tr') and *[@class='rt-td' and text()='{firstName}']]");
+                By rowWithFirstName = By.XPath($"//div[contains(@class, 'rt-td') and text()='{firstName}']");  
                 return _driver.FindElement(rowWithFirstName).Displayed;
             }
             catch (NoSuchElementException)
