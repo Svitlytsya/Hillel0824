@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'SeleniumDemoQA/CSharpBasics/**'
+      - 'SeleniumDemoQA/SeleniumDemoQA/**'
   pull_request:
     branches: [ "main" ]
     paths:
-      - 'SeleniumDemoQA/CSharpBasics/**'
+      - 'SeleniumDemoQA/SeleniumDemoQA/**'
 
 jobs:
   build:
@@ -26,4 +26,4 @@ jobs:
     - name: Build
       run: dotnet build SeleniumDemoQA --no-restore
     - name: Test
-      run: dotnet test SeleniumDemoQA/CSharpBasics --no-build
+      run: dotnet test SeleniumDemoQA/SeleniumDemoQA --no-build
