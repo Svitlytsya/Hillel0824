@@ -38,11 +38,19 @@ public class WebTablesTest
         var page = await context.NewPageAsync();
         await page.GotoAsync("https://demoqa.com/webtables");
 
+        var salaryText = await page.Locator(".rt-tr-group")
+            .Filter(new() { Has = page.GetByRole(AriaRole.Gridcell, new() { Name = "Alden", Exact = true }) })
+            //.Locator("rt-td").GetByRole(AriaRole.Gridcell, new() { Name = "12000" })
+            .Locator(".rt-td").Nth(4)
+            .InnerTextAsync();
+        int currentSalary = int.Parse(salaryText);
+        int newSalary = (int)(currentSalary * 1.1);
+
         await page.Locator(".rt-tr-group")
             .Filter(new() { Has = page.GetByRole(AriaRole.Gridcell, new() { Name = "Alden", Exact = true }) })
             .GetByTitle("Edit").ClickAsync();
         await page.GetByPlaceholder("Last Name").FillAsync("Canter");
-        await page.GetByPlaceholder("Salary").FillAsync("13200");
+        await page.GetByPlaceholder("Salary").FillAsync(newSalary.ToString());
         await page.GetByRole(AriaRole.Button, new() { Name = "Submit" }).ClickAsync();
 
         await Assertions.Expect(page.GetByRole(AriaRole.Grid)).ToContainTextAsync("Canter");
@@ -73,13 +81,12 @@ public class WebTablesTest
         await page.GetByRole(AriaRole.Button, new() { Name = "Submit" }).ClickAsync();
 
         var newRow = page.Locator(".rt-tr-group")
-            .Filter(new() { HasText = "Elchin" })
-            .Filter(new() { HasText = "Sangu" })
-            .Filter(new() { HasText = "elchinsangu@ask.com" })
-            .Filter(new() { HasText = "42" })
-            .Filter(new() { HasText = "35000" })
-            .Filter(new() { HasText = "Finance" });
-        await Assertions.Expect(newRow).ToBeVisibleAsync();
+            .Filter(new() { HasText = "Elchin" });
+        await Assertions.Expect(newRow).ToContainTextAsync("Sangu");
+        await Assertions.Expect(newRow).ToContainTextAsync("42");
+        await Assertions.Expect(newRow).ToContainTextAsync("elchinsangu@ask.com");
+        await Assertions.Expect(newRow).ToContainTextAsync("35000");
+        await Assertions.Expect(newRow).ToContainTextAsync("Finance");
 
     }
 
