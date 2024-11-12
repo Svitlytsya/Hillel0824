@@ -54,7 +54,7 @@ public class WebTablesTest
         await page.GetByRole(AriaRole.Button, new() { Name = "Submit" }).ClickAsync();
 
         await Assertions.Expect(page.GetByRole(AriaRole.Grid)).ToContainTextAsync("Canter");
-        await Assertions.Expect(page.GetByRole(AriaRole.Grid)).ToContainTextAsync("13200");
+        await Assertions.Expect(page.GetByRole(AriaRole.Grid)).ToContainTextAsync(newSalary.ToString());
 
     }
 
