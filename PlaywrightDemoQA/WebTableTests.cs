@@ -109,7 +109,7 @@ public class WebTablesTest
     }
 
     [Test]
-    public async Task EditRow()
+    public async Task EditRowTest()
     {
         var page = await context.NewPageAsync();
         await page.GotoAsync("https://demoqa.com/webtables");
