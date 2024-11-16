@@ -14,6 +14,8 @@ namespace LambdatestEcom.Pages
         public async Task Open()
         {
             await _page.GotoAsync("https://ecommerce-playground.lambdatest.io");
+            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         }
 
         public async Task OpenCategory(string name)
@@ -28,13 +30,15 @@ namespace LambdatestEcom.Pages
     
         public async Task SearchProductAndSelectFirstInDropDown(string name)
         {
-            await _page.GetByRole(AriaRole.Textbox, new() { Name = "Search For Products" }).ClickAsync();
+            //await _page.GetByRole(AriaRole.Textbox, new() { Name = "Search For Products" }).ClickAsync();
             await _page.GetByRole(AriaRole.Textbox, new() { Name = "Search For Products" }).FillAsync(name);
             //await _page.WaitForTimeoutAsync(3000);
             //await _page.Locator("#entry_217822").GetByText("HP LP3065").First.ClickAsync();
             //_page.Locator("#entry_217822").Filter(new() { Has = _page.GetByRole(AriaRole.Directory, new() { Name = "HP LP3065", Exact = true }) }).First.ClickAsync(); 
+            //await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
+            await _page.Locator("li a").Filter(new() { HasText = "HP LP3065"}).First.ClickAsync();
+            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
             await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
-             _page.Locator("#entry_217822 li").Filter(new() { HasText = "HP LP3065"}).First.ClickAsync();
 
             // Чекаємо на появу хоча б одного елемента з випадаючого меню
             //var dropdownItemLocator = _page.Locator(".dropdown-menu.autocomplete li");
@@ -53,7 +57,7 @@ namespace LambdatestEcom.Pages
             //await dropdown.First.WaitForAsync();
             //await dropdown.Locator("li", new() { HasText = "HP LP3065" }).First.ClickAsync();
 
-            
+
 
         }
 

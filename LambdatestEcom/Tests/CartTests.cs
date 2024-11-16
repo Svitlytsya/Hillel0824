@@ -39,7 +39,7 @@ namespace LambdatestEcom.Tests
             var addedProductRow = page.Locator("#content")
                 .GetByRole(AriaRole.Table)
                 .GetByRole(AriaRole.Row)
-                .GetByRole(AriaRole.Cell)
+                //.GetByRole(AriaRole.Cell)
                 .Filter(new() { HasText = "HP LP3065" });
             await Assertions.Expect(addedProductRow).ToContainTextAsync("HP LP3065");
             await Assertions.Expect(addedProductRow).ToContainTextAsync("3");
