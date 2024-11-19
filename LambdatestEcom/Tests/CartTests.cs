@@ -27,6 +27,14 @@ namespace LambdatestEcom.Tests
             var catalogPage = new CatalogPage(page);
             var productPage = new ProductPage(page);
             var shopCartPage = new ShopCartPage(page);
+            var addedProductRow = page.Locator("#content")
+               .GetByRole(AriaRole.Table)
+               .GetByRole(AriaRole.Row)
+               .Filter(new() { HasText = "HP LP3065" });
+            var addedProductRow2 = page.Locator("#content")
+               .GetByRole(AriaRole.Table)
+               .GetByRole(AriaRole.Row)
+               .Filter(new() { HasText = "iPod Classic" });
 
             // Act
             await homePage.Open();
@@ -35,15 +43,23 @@ namespace LambdatestEcom.Tests
             await productPage.AddProductToCart();
             await productPage.GoToShoppingCart();
 
-
-            var addedProductRow = page.Locator("#content")
-                .GetByRole(AriaRole.Table)
-                .GetByRole(AriaRole.Row)
-                .GetByRole(AriaRole.Cell)
-                .Filter(new() { HasText = "HP LP3065" });
             await Assertions.Expect(addedProductRow).ToContainTextAsync("HP LP3065");
             await Assertions.Expect(addedProductRow).ToContainTextAsync("3");
             await Assertions.Expect(addedProductRow).ToContainTextAsync("$366.00");
+
+            await shopCartPage.GoToContinueShopping();
+            await homePage. SearchProductBySearchButton("iPod Classic");
+            await catalogPage.AddProductToCart(0);
+            await productPage.GoToShoppingCart();
+
+            await Assertions.Expect(addedProductRow).ToContainTextAsync("3");
+            await Assertions.Expect(addedProductRow2).ToContainTextAsync("1");
+            await Assertions.Expect(page.Locator("#content")).ToContainTextAsync("$488.00");
+
+            await shopCartPage.EditProductQuantityinCart(2);
+            await shopCartPage.UpdateQuantity();
+
+            await Assertions.Expect(page.Locator("#content")).ToContainTextAsync("$610.00");
         }
 
     }

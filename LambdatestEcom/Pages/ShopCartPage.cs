@@ -18,25 +18,34 @@ namespace LambdatestEcom.Pages
             _page = page;
         }
 
-        public async Task ProductNameFromTableCell()
+        public async Task GoToContinueShopping()
         {
-          var productNameContent = _page.Locator("#content").GetByRole(AriaRole.Table).GetByRole(AriaRole.Row).GetByRole(AriaRole.Cell).Filter(new() { HasText = "HP LP3065" }).InnerTextAsync();
-
+            await _page.GetByRole(AriaRole.Link, new() { Name = "Continue Shopping" }).ClickAsync();
+            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         }
 
 
-        //public async Task<string> GetProductName()
-        //{
-        //    // Знайти назву продукту в рядку таблиці, де є назва "HP LP3065"
-        //    var rowLocator = _page.Locator("#content table tbody tr")
-        //        .Filter(new() { HasText = "HP LP3065" });
 
-        //    // У рядку знайти текст у клітинці, яка містить назву продукту
-        //    var productCell = rowLocator.Locator("td").First;
 
-        //    return await productCell.InnerTextAsync();
-        //}
+        public async Task UpdateQuantity()
+        {
+            await _page.GetByRole(AriaRole.Button, new() { Name = "" }).Nth(1).ClickAsync();
+            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
+        }
 
-        //_page.Locator("#content").GetByRole(AriaRole.Table).GetByRole(AriaRole.Row).Filter(new() { Has = _page.GetByRole(AriaRole.Cell, new() { Name = "HP LP3065", Exact = true }) });
-    }
+
+        public async Task EditProductQuantityinCart(int quantity)
+        {
+            //await _page.Locator("#content").GetByRole(AriaRole.Table).GetByRole(AriaRole.Row).Filter(new() { HasText = "iPod Classic" }).GetByRole(AriaRole.Cell, new() { Name = "1" }).ClickAsync();
+            //await _page.Locator("#content").GetByRole(AriaRole.Table).GetByRole(AriaRole.Row).Filter(new() { HasText = "iPod Classic" }).GetByRole(AriaRole.Cell, new() { Name = "1" }).FillAsync(quantity.ToString());
+            //await _page.Locator("input[name=\"quantity\\[88149\\]\"]").FillAsync("2");
+            await _page.Locator("#content").GetByRole(AriaRole.Table).GetByRole(AriaRole.Row).Filter(new() { HasText = "iPod Classic" }).Locator("input[name^='quantity']").FillAsync(quantity.ToString());
+        }
+   
+
+
+
+     }
 }
