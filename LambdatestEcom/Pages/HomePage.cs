@@ -14,8 +14,6 @@ namespace LambdatestEcom.Pages
         public async Task Open()
         {
             await _page.GotoAsync("https://ecommerce-playground.lambdatest.io");
-            await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         }
 
         public async Task OpenCategory(string name)
