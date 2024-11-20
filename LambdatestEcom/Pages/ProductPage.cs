@@ -18,7 +18,7 @@ namespace LambdatestEcom.Pages
             _page = page;
         }
 
-        public async Task IncreaseQuantityOfProduct(int quantity)
+        public async Task IncreaseQuantityOfProduct()
         {
             await _page.GetByRole(AriaRole.Button, new() { Name = "Increase quantity" }).ClickAsync();
             await _page.GetByRole(AriaRole.Button, new() { Name = "Increase quantity" }).ClickAsync();
@@ -29,7 +29,7 @@ namespace LambdatestEcom.Pages
          public async Task AddProductToCart()
          {
             //await _page.GetByRole(AriaRole.Button, new() { Name = "Add to Cart" }).ClickAsync();
-            await _page.Locator("#entry_216842").GetByRole(AriaRole.Button, new() { Name = "Add to Cart", Exact = true }).ClickAsync();
+            await _page.Locator("#product-product").GetByRole(AriaRole.Button, new() { Name = "Add to Cart", Exact = true }).ClickAsync();
             //await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
             //await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
          }

@@ -27,19 +27,13 @@ namespace LambdatestEcom.Tests
             var catalogPage = new CatalogPage(page);
             var productPage = new ProductPage(page);
             var shopCartPage = new ShopCartPage(page);
-            var addedProductRow = page.Locator("#content")
-               .GetByRole(AriaRole.Table)
-               .GetByRole(AriaRole.Row)
-               .Filter(new() { HasText = "HP LP3065" });
-            var addedProductRow2 = page.Locator("#content")
-               .GetByRole(AriaRole.Table)
-               .GetByRole(AriaRole.Row)
-               .Filter(new() { HasText = "iPod Classic" });
+            var addedProductRow = shopCartPage.GetAddedProductLokator("HP LP3065");
+            var addedProductRow2 = shopCartPage.GetAddedProductLokator("iPod Classic");
 
             // Act
             await homePage.Open();
             await homePage.SearchProductAndSelectFirstInDropDown("HP LP3065");
-            await productPage.IncreaseQuantityOfProduct(3);
+            await productPage.IncreaseQuantityOfProduct();
             await productPage.AddProductToCart();
             await productPage.GoToShoppingCart();
 
@@ -56,8 +50,8 @@ namespace LambdatestEcom.Tests
             await Assertions.Expect(addedProductRow2).ToContainTextAsync("1");
             await Assertions.Expect(page.Locator("#content")).ToContainTextAsync("$488.00");
 
-            await shopCartPage.EditProductQuantityinCart(2);
-            await shopCartPage.UpdateQuantity();
+            await shopCartPage.EditProductQuantityinCart("iPod Classic", 2);
+            //await shopCartPage.UpdateQuantity();
 
             await Assertions.Expect(page.Locator("#content")).ToContainTextAsync("$610.00");
         }
