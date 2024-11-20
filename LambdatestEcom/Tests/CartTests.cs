@@ -33,7 +33,7 @@ namespace LambdatestEcom.Tests
             // Act
             await homePage.Open();
             await homePage.SearchProductAndSelectFirstInDropDown("HP LP3065");
-            await productPage.IncreaseQuantityOfProduct();
+            await productPage.IncreaseQuantityOfProduct(2);
             await productPage.AddProductToCart();
             await productPage.GoToShoppingCart();
 

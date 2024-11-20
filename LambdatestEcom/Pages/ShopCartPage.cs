@@ -45,9 +45,9 @@ namespace LambdatestEcom.Pages
             await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         }
 
-        public ILocator GetAddedProductLokator(string productName)
+        public ILocator GetAddedProductLokator(string name)
         {
-            return _page.Locator("#content").GetByRole(AriaRole.Table).GetByRole(AriaRole.Row).Filter(new() { HasText = productName });
+            return _page.Locator("#content").GetByRole(AriaRole.Table).GetByRole(AriaRole.Row).Filter(new() { HasText = name });
 
         }
 
