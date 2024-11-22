@@ -80,18 +80,15 @@ namespace CSharpBasics
 
     public class Car
     {
-        // Fields (Data)
         public string Color;
         public string Model;
 
-        // Constructor (Special method to initialize objects)
         public Car(string color, string model)
         {
             Color = color;
             Model = model;
         }
 
-        // Method (Behavior)
         public void Drive()
         {
             Console.WriteLine(Model + " The car is driving.");
