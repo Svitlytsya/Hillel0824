@@ -30,7 +30,6 @@ namespace LambdatestEcom.Pages
         {
             await _page.GetByRole(AriaRole.Textbox, new() { Name = "Search For Products" }).ClickAsync();
             await _page.GetByRole(AriaRole.Textbox, new() { Name = "Search For Products" }).FillAsync(name);
-            //await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
             await _page.Locator("li a").Filter(new() { HasText = "HP LP3065" }).First.ClickAsync();
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
             await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);

@@ -20,10 +20,11 @@ namespace LambdatestEcom.Pages
 
         public async Task IncreaseQuantityOfProduct(int quantity)
         {
-            await _page.GetByRole(AriaRole.Button, new() { Name = "Increase quantity" }).ClickAsync();
-            //await _page.GetByRole(AriaRole.Button, new() { Name = "Increase quantity" }).ClickAsync();
+           for(int i = 0; i < quantity; i++)
+           {
+                await _page.GetByRole(AriaRole.Button, new() { Name = "Increase quantity" }).ClickAsync();
+           }
             //await _page.GetByRole(AriaRole.Button).Filter(new() { HasText = "Increase quantity" }).ClickAsync();
-   
         }
          public async Task AddProductToCart()
          {

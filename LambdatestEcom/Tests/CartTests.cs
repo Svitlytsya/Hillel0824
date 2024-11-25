@@ -51,9 +51,8 @@ namespace LambdatestEcom.Tests
             await Assertions.Expect(page.Locator("#content")).ToContainTextAsync("$488.00");
 
             await shopCartPage.EditProductQuantityinCart("iPod Classic", 2);
-            //await shopCartPage.UpdateQuantity();
-
             await Assertions.Expect(page.Locator("#content")).ToContainTextAsync("$610.00");
+        
         }
 
     }
