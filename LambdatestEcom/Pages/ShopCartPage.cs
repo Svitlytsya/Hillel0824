@@ -34,7 +34,7 @@ namespace LambdatestEcom.Pages
 
         public async Task EditProductQuantityinCart(string name, int quantity)
         {
-            await GetAddedProductLokator(name).Locator("input[name='quantity']").FillAsync(quantity.ToString());
+            await GetAddedProductLokator(name).Locator("input[name^='quantity']").FillAsync(quantity.ToString());
             await _page.GetByRole(AriaRole.Button, new() { Name = "" }).Nth(1).ClickAsync();
             await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
             await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
