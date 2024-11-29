@@ -6,7 +6,7 @@ namespace LambdatestEcom
     {
         public IPage page { get; private set; }
         private IBrowser browser;
-        private IBrowserContext context;
+        public IBrowserContext context;
 
         [SetUp]
         public async Task Setup()
@@ -25,7 +25,8 @@ namespace LambdatestEcom
                 {
                     Width = 1920,
                     Height = 1080
-                }
+                },
+                IgnoreHTTPSErrors = true
             });
 
             await context.Tracing.StartAsync(new()
