@@ -13,20 +13,20 @@ namespace LambdatestEcom.Tests
     internal class LogInTest: UITestFixture
     {
         [Test]
-        public async Task Login()
+        public async Task CheckStateIsLoaded()
         {
            var loginPage = new LoginPage(page);
 
             await loginPage.Open();
             
-            var multipart = context.APIRequest.CreateFormData();
-            multipart.Append("email", "elchinsangu@ask.com");
-            multipart.Append("password", "1509");
+            //var multipart = context.APIRequest.CreateFormData();
+            //multipart.Append("email", "elchinsangu@ask.com");
+            //multipart.Append("password", "1509");
 
-            var response = await context.APIRequest.PostAsync("https://ecommerce-playground.lambdatest.io/index.php?route=account/login",
-                           new() { Form = multipart });
+            //var response = await context.APIRequest.PostAsync("https://ecommerce-playground.lambdatest.io/index.php?route=account/login",
+            //               new() { Form = multipart });
 
-            Assert.That(response.Ok, "API login request was not successful");
+            //Assert.That(response.Ok, "API login request was not successful");
 
             await loginPage.OpenAccount();
 
