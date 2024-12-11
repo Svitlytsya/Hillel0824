@@ -15,7 +15,7 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         public ScenarioContext scenarioContext;
         public UITestFixture(ScenarioContext scenarioContext)
         {
-            scenarioContext = scenarioContext;
+            this.scenarioContext = scenarioContext;
             _driver = scenarioContext["WebDriver"] as IWebDriver;
 
             homePage = new HomePage(_driver);
