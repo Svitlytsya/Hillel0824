@@ -1,7 +1,4 @@
 using NUnit.Framework;
-using SpecFlowSeleniumSolarTechnology.Pages;
-using System;
-using TechTalk.SpecFlow;
 
 namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
 {
@@ -20,9 +17,9 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         }
 
         [When(@"Add second product item from catalog to cart")]
-        public void WhenAddProductItemToCart(int productIndex)
+        public void WhenAddProductItemToCart()
         {
-            catalogPage.AddProductItemToCart(productIndex);
+            catalogPage.AddProductItemToCart(1);
 
         }
 
@@ -33,9 +30,9 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         }
 
         [When(@"Remove first product item from cart")]
-        public void WhenRemoveProductItemFromCart(int productIndex)
+        public void WhenRemoveProductItemFromCart()
         {
-            cartPage.RemoveProductItemFromCart(productIndex);
+            cartPage.RemoveProductItemFromCart(0);
         }
 
         [Then(@"There must be a return to the Home page")]

@@ -1,7 +1,4 @@
 using NUnit.Framework;
-using SpecFlowSeleniumSolarTechnology.Pages;
-using System;
-using TechTalk.SpecFlow;
 
 namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
 {
@@ -39,7 +36,7 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
             catalogPage.OpenFilters();
         }
 
-        [When(@"Check Brand")]
+        [When(@"Check Brand '([^']*)'")]
         public void WhenCheckBrand(string brandName)
         {
             catalogPage.CheckBrand(brandName);
