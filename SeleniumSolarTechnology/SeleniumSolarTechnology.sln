@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarTechnology", "..\SeleniumSolarTechnology\SolarTechnology\SolarTechnology.csproj", "{4BA592E8-D133-41E1-A005-9E43F3948348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarTechnology", "SolarTechnology\SolarTechnology.csproj", "{4BA592E8-D133-41E1-A005-9E43F3948348}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowSeleniumSolarTechnology", "SpecFlowSeleniumSolarTechnology\SpecFlowSeleniumSolarTechnology.csproj", "{9C31A10C-CA89-4922-B929-C1BF9EF8B30A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4BA592E8-D133-41E1-A005-9E43F3948348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BA592E8-D133-41E1-A005-9E43F3948348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BA592E8-D133-41E1-A005-9E43F3948348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C31A10C-CA89-4922-B929-C1BF9EF8B30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C31A10C-CA89-4922-B929-C1BF9EF8B30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C31A10C-CA89-4922-B929-C1BF9EF8B30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C31A10C-CA89-4922-B929-C1BF9EF8B30A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
