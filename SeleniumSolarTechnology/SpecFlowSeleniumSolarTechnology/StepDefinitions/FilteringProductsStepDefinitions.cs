@@ -1,7 +1,5 @@
 using NUnit.Framework;
-using SpecFlowSeleniumSolarTechnology.Pages;
-using System;
-using TechTalk.SpecFlow;
+
 
 namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
 {
@@ -29,7 +27,7 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         public void WhenCountProductItemsBefore()
         {
             int countProductsBefore = catalogPage.CountProductItems();
-            ScenarioContext.Current["CountBefore"] = countProductsBefore;
+            scenarioContext["CountBefore"] = countProductsBefore;
             Console.WriteLine($"Products before filtering: {countProductsBefore}");
         }
 
@@ -39,7 +37,7 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
             catalogPage.OpenFilters();
         }
 
-        [When(@"Check Brand")]
+        [When(@"Check Brand '([^']*)'")]
         public void WhenCheckBrand(string brandName)
         {
             catalogPage.CheckBrand(brandName);
@@ -49,15 +47,15 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         public void WhenCountProductItemsAfter()
         {
             int countProductsAfter = catalogPage.CountProductItems();
-            ScenarioContext.Current["CountAfter"] = countProductsAfter;
+            scenarioContext["CountAfter"] = countProductsAfter;
             Console.WriteLine($"Products after filtering: {countProductsAfter}");
         }
 
         [Then(@"The count product items should be less than before")]
         public void ThenTheCountProductItemsShouldBeLessThanBefore()
         {
-            int countBefore = (int)ScenarioContext.Current["CountBefore"];
-            int countAfter = (int)ScenarioContext.Current["CountAfter"];
+            int countBefore = (int)scenarioContext["CountBefore"];
+            int countAfter = (int)scenarioContext["CountAfter"];
             Assert.That(countAfter, Is.LessThan(countBefore),
                 $"The count of product items is not less after the filtering. Expected less than {countBefore}, but was {countAfter}.");
         }
