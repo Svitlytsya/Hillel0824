@@ -109,13 +109,13 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.And("Open Cable And Switching link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 7
-     testRunner.When("Add product item to cart(1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("Add second product item from catalog to cart(1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
  testRunner.And("Make order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
-    testRunner.And("Remove product item from cart(0)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("Remove first product item from cart(0)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
         testRunner.Then("There must be a return to the Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

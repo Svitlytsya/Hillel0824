@@ -39,10 +39,10 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
             catalogPage.OpenFilters();
         }
 
-        [When(@"Check Brand '([^']*)'")]
-        public void WhenCheckBrand(string p0)
+        [When(@"Check Brand")]
+        public void WhenCheckBrand(string brandName)
         {
-            catalogPage.CheckBrand("JA Solar");
+            catalogPage.CheckBrand(brandName);
         }
 
         [When(@"Count product items after")]

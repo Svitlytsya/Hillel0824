@@ -19,10 +19,10 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
             homePage.OpenCableAndSwitching();
         }
 
-        [When(@"Add product item to cart\((.*)\)")]
-        public void WhenAddProductItemToCart(int p0)
+        [When(@"Add second product item from catalog to cart")]
+        public void WhenAddProductItemToCart(int productIndex)
         {
-            catalogPage.AddProductItemToCart(1);
+            catalogPage.AddProductItemToCart(productIndex);
 
         }
 
@@ -32,10 +32,10 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
             cartPage.MakeOrder();
         }
 
-        [When(@"Remove product item from cart\((.*)\)")]
-        public void WhenRemoveProductItemFromCart(int p0)
+        [When(@"Remove first product item from cart")]
+        public void WhenRemoveProductItemFromCart(int productIndex)
         {
-            cartPage.RemoveProductItemFromCart(0);
+            cartPage.RemoveProductItemFromCart(productIndex);
         }
 
         [Then(@"There must be a return to the Home page")]
