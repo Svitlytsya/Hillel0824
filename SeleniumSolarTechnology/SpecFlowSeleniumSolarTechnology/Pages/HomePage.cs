@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SpecFlowSeleniumSolarTechnology.Pages
 {
-    internal class HomePage: BasePage
+    public class HomePage: BasePage
     {
         private string pageUrl = "https://solartechnology.com.ua/shop";
         private By solarPanelsLink = By.CssSelector(".list-inline [href='/shop/solar-panels']");
@@ -35,24 +35,25 @@ namespace SpecFlowSeleniumSolarTechnology.Pages
        
         public void OpenCableAndSwitching()
         {
-            //WaitAndClickElement(cableSwitchingLink);
-            //WaitForLoader();
+            WaitAndClickElement(cableSwitchingLink);
+            
+            WaitForLoader();
 
-            try
-            {
-                Console.WriteLine("Чекаємо елемент...");
-                WaitForElementVisible(cableSwitchingLink, 15); 
-                var element = GetElementBy(cableSwitchingLink);
-                ScrollTo(element);
-                Console.WriteLine("Елемент знайдено, клікаємо...");
-                element.Click();
-                WaitForLoader();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Помилка: {ex.Message}");
-                throw;
-            }
+            //try
+            //{
+            //    Console.WriteLine("Чекаємо елемент...");
+            //    WaitForElementVisible(cableSwitchingLink, 15); 
+            //    var element = GetElementBy(cableSwitchingLink);
+            //    ScrollTo(element);
+            //    Console.WriteLine("Елемент знайдено, клікаємо...");
+            //    element.Click();
+            //    WaitForLoader();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"Помилка: {ex.Message}");
+            //    throw;
+            //}
 
         }
 

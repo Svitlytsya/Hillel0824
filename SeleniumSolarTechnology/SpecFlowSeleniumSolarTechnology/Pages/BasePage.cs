@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SpecFlowSeleniumSolarTechnology.Pages
 {
-    internal class BasePage
+    public class BasePage
     {
         public IWebDriver _driver;
         public IJavaScriptExecutor _js;

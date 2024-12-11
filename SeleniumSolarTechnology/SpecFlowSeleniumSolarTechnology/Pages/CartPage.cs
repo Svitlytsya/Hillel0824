@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SpecFlowSeleniumSolarTechnology.Pages
 {
-    internal class CartPage: BasePage
+    public class CartPage: BasePage
     {
-        private By orderButton = By.CssSelector(".buttons [href='/cart']");
+        private By orderButton = By.XPath("//*[@class='buttons']//a[contains(@href, '/cart')]");
         private By removeItemIcon = By.CssSelector(".remove-from-cart>.material-icons");
 
 
@@ -19,6 +19,7 @@ namespace SpecFlowSeleniumSolarTechnology.Pages
 
         public void MakeOrder()
         {
+            WaitForElementEnabled(orderButton);
             ClickElement(orderButton);
             WaitForLoader();
         }

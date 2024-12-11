@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpecFlowSeleniumSolarTechnology.Pages
 {
-    internal class CatalogPage : BasePage
+    public class CatalogPage : BasePage
     {
         private By filterButton = By.CssSelector(".filter-button");
         private By productItem = By.CssSelector(".product-block .prod-holder");

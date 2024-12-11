@@ -16,21 +16,18 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         [Given(@"Open Solartechnology Shop page")]
         public void GivenOpenSolartechnologyShopPage()
         {
-            var homePage = new HomePage(_driver);
             homePage.Open();
         }
 
         [Given(@"Open Solar Panels link")]
         public void GivenOpenSolarPanelsLink()
         {
-            var homePage = new HomePage(_driver);
             homePage.OpenSolarPanels();
         }
 
         [When(@"Count product items before")]
         public void WhenCountProductItemsBefore()
         {
-            var catalogPage = new CatalogPage(_driver);
             int countProductsBefore = catalogPage.CountProductItems();
             ScenarioContext.Current["CountBefore"] = countProductsBefore;
             Console.WriteLine($"Products before filtering: {countProductsBefore}");
@@ -39,21 +36,18 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         [When(@"Open filter by brands")]
         public void WhenOpenFilterByBrands()
         {
-            var catalogPage = new CatalogPage(_driver);
             catalogPage.OpenFilters();
         }
 
         [When(@"Check Brand '([^']*)'")]
         public void WhenCheckBrand(string p0)
         {
-            var catalogPage = new CatalogPage(_driver);
             catalogPage.CheckBrand("JA Solar");
         }
 
         [When(@"Count product items after")]
         public void WhenCountProductItemsAfter()
         {
-            var catalogPage = new CatalogPage(_driver);
             int countProductsAfter = catalogPage.CountProductItems();
             ScenarioContext.Current["CountAfter"] = countProductsAfter;
             Console.WriteLine($"Products after filtering: {countProductsAfter}");

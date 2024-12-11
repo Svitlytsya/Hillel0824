@@ -21,10 +21,10 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
         public CartPage cartPage;
         public CatalogPage catalogPage;
 
-        public ScenarioContext scenarioContext;
+        //public ScenarioContext scenarioContext;
         public UITestFixture(ScenarioContext scenarioContext)
         {
-            scenarioContext = scenarioContext;
+            //scenarioContext = scenarioContext;
             _driver = scenarioContext["WebDriver"] as IWebDriver;
 
             homePage = new HomePage(_driver);
