@@ -13,7 +13,6 @@ namespace SpecFlowSeleniumSolarTechnology.Pages
         public IWebDriver _driver;
         public IJavaScriptExecutor _js;
 
-        private By loader = By.Id("p_prldr");
 
         public BasePage(IWebDriver driver)
         {
@@ -21,6 +20,8 @@ namespace SpecFlowSeleniumSolarTechnology.Pages
             _js = (IJavaScriptExecutor)_driver;
         }
 
+        private By loader = By.Id("p_prldr");
+       
         public void NavigateTo(string link)
         {
             _driver.Navigate().GoToUrl(link);

@@ -8,7 +8,11 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
     [Binding]
     public class FilteringProductsStepDefinitions : UITestFixture
     {
-        
+        public FilteringProductsStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
+        {
+            Console.WriteLine("FilteringProductsStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)");
+        }
+
         [Given(@"Open Solartechnology Shop page")]
         public void GivenOpenSolartechnologyShopPage()
         {

@@ -8,6 +8,12 @@ namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
     [Binding]
     public class CartStepDefinitions : UITestFixture
     {
+        public CartStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
+        {
+           
+        }
+
+
         [Given(@"Open Cable And Switching link")]
         public void GivenOpenCableAndSwitchingLink()
         {

@@ -7,31 +7,29 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Support.UI;
 using NUnit.Framework;
+using SpecFlowSeleniumSolarTechnology.Pages;
+using OpenQA.Selenium;
+
 
 namespace SpecFlowSeleniumSolarTechnology.StepDefinitions
 {
     public class UITestFixture
     {
         public IWebDriver _driver;
-        public IJavaScriptExecutor _js;
 
-        [BeforeScenario]
-        [SetUp]
-        public void Setup()
+        public HomePage homePage;
+        public CartPage cartPage;
+        public CatalogPage catalogPage;
+
+        public ScenarioContext scenarioContext;
+        public UITestFixture(ScenarioContext scenarioContext)
         {
-            var options = new ChromeOptions();
-            options.AddArgument("window-size=1400,1200"); // Set desired resolution
-            _driver = new ChromeDriver(options);
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _js = (IJavaScriptExecutor)_driver;
-        }
+            scenarioContext = scenarioContext;
+            _driver = scenarioContext["WebDriver"] as IWebDriver;
 
-        [AfterScenario]
-        [TearDown]
-        public void TearDown()
-        {
-            _driver.Quit();
+            homePage = new HomePage(_driver);
+            cartPage = new CartPage(_driver);
+            catalogPage = new CatalogPage(_driver);
         }
-
     }
 }
