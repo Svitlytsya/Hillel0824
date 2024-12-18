@@ -14,7 +14,7 @@ namespace LambdatestEcom.Tests
 {
     [Parallelizable(ParallelScope.Self)]
     [TestFixture]
-    internal class CartTests : UITestFixture
+    internal class CartTests : UITestFixture2
     {
         [Test]
         public async Task SearchingProductAndShoppingCartTest()
