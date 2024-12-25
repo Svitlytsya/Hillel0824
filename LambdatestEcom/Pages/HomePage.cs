@@ -2,7 +2,7 @@
 
 namespace LambdatestEcom.Pages
 {
-    internal class HomePage
+    public class HomePage
     {
         private readonly IPage _page;
 
