@@ -5,7 +5,7 @@ namespace LambdatestEcom.Tests
 {
     [Parallelizable(ParallelScope.Self)]
     [TestFixture]
-    public class ExampleTest : UITestFixture
+    public class ExampleTest : UITestFixture2
     {
         [Test]
         public async Task CheckoutAsNewUser()

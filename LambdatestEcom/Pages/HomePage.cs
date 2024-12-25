@@ -2,7 +2,7 @@
 
 namespace LambdatestEcom.Pages
 {
-    internal class HomePage
+    public class HomePage
     {
         private readonly IPage _page;
 
@@ -48,8 +48,12 @@ namespace LambdatestEcom.Pages
             await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
         }
 
+        public async Task OpenMyAccount()
+        {
 
+            await _page.GetByRole(AriaRole.Button, new() { Name = "My account" }).ClickAsync();
 
-
+            await _page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
+        }
     }
 }

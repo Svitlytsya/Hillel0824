@@ -10,7 +10,7 @@ namespace LambdatestEcom.Tests
 {
     [Parallelizable(ParallelScope.Self)]
     [TestFixture]
-    internal class LogInTest: UITestFixture
+    internal class LogInTest: UITestFixture2
     {
         [Test]
         public async Task CheckStateIsLoaded()
