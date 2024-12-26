@@ -15,7 +15,7 @@ public class WebTablesTest
         var playwright = await Playwright.CreateAsync();
         var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
-            Headless = false,
+            Headless = true,
         });
         context = await browser.NewContextAsync();
 
