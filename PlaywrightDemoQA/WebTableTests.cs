@@ -124,7 +124,7 @@ public class WebTablesTest
             .ToBeVisibleAsync();
     }
 
-    [Test]
+   /* [Test]
     public async Task AddRow()
     {
         var page = await context.NewPageAsync();
@@ -160,13 +160,13 @@ public class WebTablesTest
 
 
     }
-
+    
 
     private int GetColumnIndex(string columnHeader, IReadOnlyList<string> columnHeaders)
     {
         return columnHeaders.ToList().IndexOf(columnHeader);
     }
-
+   */
 
     [Test]
     public async Task Solar()
@@ -174,7 +174,7 @@ public class WebTablesTest
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
-            Headless = false,
+            Headless = true,
         });
         var context = await browser.NewContextAsync();
 

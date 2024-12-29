@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="6eaee6e7-3139-4112-a641-7b78216d2e6a" name="@8cfd2d060373 2024-12-29 09:12:36" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-12-29T09:12:36.4820332+00:00" queuing="2024-12-29T09:12:36.4820334+00:00" start="2024-12-29T09:12:17.6137101+00:00" finish="2024-12-29T09:13:37.7397643+00:00" />
+  <TestSettings name="default" id="c358717a-d52e-4fe5-9461-d0bd3f4fb3dc">
+    <Deployment runDeploymentRoot="_8cfd2d060373_2024-12-29_09_12_36" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="4d31ed1a-c768-424c-98fe-e9e4199de5ba" testId="7179b4f4-8b5e-991b-6efe-4c7cd709f860" testName="HasTitle" computerName="8cfd2d060373" duration="00:00:24.6858510" startTime="2024-12-29T09:12:20.3061268+00:00" endTime="2024-12-29T09:12:44.9871777+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4d31ed1a-c768-424c-98fe-e9e4199de5ba" />
+    <UnitTestResult executionId="f9a55c5b-8e55-45ba-b7d9-65c895fa090c" testId="86ebe7f7-62ed-3c89-f292-68a1df065452" testName="DeleteRow" computerName="8cfd2d060373" duration="00:00:11.1586410" startTime="2024-12-29T09:12:46.7481801+00:00" endTime="2024-12-29T09:12:57.9015020+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f9a55c5b-8e55-45ba-b7d9-65c895fa090c" />
+    <UnitTestResult executionId="bfd4c61c-db89-4335-ae1c-3e14e9fd4761" testId="fc001db6-cb87-4af8-d0f6-83d74d5f18f6" testName="EditRow" computerName="8cfd2d060373" duration="00:00:11.7407700" startTime="2024-12-29T09:12:57.9016161+00:00" endTime="2024-12-29T09:13:09.6423854+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bfd4c61c-db89-4335-ae1c-3e14e9fd4761" />
+    <UnitTestResult executionId="7a54b808-ec6e-49f2-b250-fd3c9e6f2de5" testId="ac1c69f2-dd5c-7d1c-f785-005a66c5f359" testName="Solar" computerName="8cfd2d060373" duration="00:00:16.2198290" startTime="2024-12-29T09:13:21.0762107+00:00" endTime="2024-12-29T09:13:37.2960392+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a54b808-ec6e-49f2-b250-fd3c9e6f2de5" />
+    <UnitTestResult executionId="4a863d26-9252-467b-a235-5445c89d746f" testId="4b64b147-2016-4956-1620-2ecfe460d606" testName="AddAndVerifynewRow" computerName="8cfd2d060373" duration="00:00:26.4467550" startTime="2024-12-29T09:12:20.3061175+00:00" endTime="2024-12-29T09:12:46.7480731+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4a863d26-9252-467b-a235-5445c89d746f" />
+    <UnitTestResult executionId="fd26a14a-7860-4d46-b1fb-a71b09f97ba6" testId="d23572c4-5a25-794e-9537-b1ac7d8dfea1" testName="HasTitle" computerName="8cfd2d060373" duration="00:00:02.2844930" startTime="2024-12-29T09:12:36.2450085+00:00" endTime="2024-12-29T09:12:38.5295018+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fd26a14a-7860-4d46-b1fb-a71b09f97ba6" />
+    <UnitTestResult executionId="5eac6f21-0533-4ec3-83cb-017369ab6294" testId="b3792b8b-05d1-c697-47f1-cc100a43c59f" testName="GetStartedLink" computerName="8cfd2d060373" duration="00:00:15.9231910" startTime="2024-12-29T09:12:20.3064088+00:00" endTime="2024-12-29T09:12:36.2245496+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5eac6f21-0533-4ec3-83cb-017369ab6294" />
+    <UnitTestResult executionId="6ee6dda9-f21f-4a2b-8e86-b6a76f68e000" testId="eaf4b778-bcd3-b3fc-cc6b-dfd4f2f3472e" testName="EditRowTest" computerName="8cfd2d060373" duration="00:00:11.4367059" startTime="2024-12-29T09:13:09.6424344+00:00" endTime="2024-12-29T09:13:21.0761178+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6ee6dda9-f21f-4a2b-8e86-b6a76f68e000" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="EditRowTest" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="eaf4b778-bcd3-b3fc-cc6b-dfd4f2f3472e">
+      <Execution id="6ee6dda9-f21f-4a2b-8e86-b6a76f68e000" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.WebTablesTest" name="EditRowTest" />
+    </UnitTest>
+    <UnitTest name="EditRow" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="fc001db6-cb87-4af8-d0f6-83d74d5f18f6">
+      <Execution id="bfd4c61c-db89-4335-ae1c-3e14e9fd4761" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.WebTablesTest" name="EditRow" />
+    </UnitTest>
+    <UnitTest name="HasTitle" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="7179b4f4-8b5e-991b-6efe-4c7cd709f860">
+      <Execution id="4d31ed1a-c768-424c-98fe-e9e4199de5ba" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.TextBoxTests" name="HasTitle" />
+    </UnitTest>
+    <UnitTest name="AddAndVerifynewRow" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="4b64b147-2016-4956-1620-2ecfe460d606">
+      <Execution id="4a863d26-9252-467b-a235-5445c89d746f" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.WebTablesTest" name="AddAndVerifynewRow" />
+    </UnitTest>
+    <UnitTest name="DeleteRow" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="86ebe7f7-62ed-3c89-f292-68a1df065452">
+      <Execution id="f9a55c5b-8e55-45ba-b7d9-65c895fa090c" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.WebTablesTest" name="DeleteRow" />
+    </UnitTest>
+    <UnitTest name="GetStartedLink" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="b3792b8b-05d1-c697-47f1-cc100a43c59f">
+      <Execution id="5eac6f21-0533-4ec3-83cb-017369ab6294" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.ExampleTest" name="GetStartedLink" />
+    </UnitTest>
+    <UnitTest name="Solar" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="ac1c69f2-dd5c-7d1c-f785-005a66c5f359">
+      <Execution id="7a54b808-ec6e-49f2-b250-fd3c9e6f2de5" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.WebTablesTest" name="Solar" />
+    </UnitTest>
+    <UnitTest name="HasTitle" storage="/app/bin/debug/net8.0/playwrightdemoqa.dll" id="d23572c4-5a25-794e-9537-b1ac7d8dfea1">
+      <Execution id="fd26a14a-7860-4d46-b1fb-a71b09f97ba6" />
+      <TestMethod codeBase="/app/bin/Debug/net8.0/PlaywrightDemoQA.dll" adapterTypeName="executor://nunit3testexecutor/" className="PlaywrightTests.ExampleTest" name="HasTitle" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="7179b4f4-8b5e-991b-6efe-4c7cd709f860" executionId="4d31ed1a-c768-424c-98fe-e9e4199de5ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="86ebe7f7-62ed-3c89-f292-68a1df065452" executionId="f9a55c5b-8e55-45ba-b7d9-65c895fa090c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fc001db6-cb87-4af8-d0f6-83d74d5f18f6" executionId="bfd4c61c-db89-4335-ae1c-3e14e9fd4761" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac1c69f2-dd5c-7d1c-f785-005a66c5f359" executionId="7a54b808-ec6e-49f2-b250-fd3c9e6f2de5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4b64b147-2016-4956-1620-2ecfe460d606" executionId="4a863d26-9252-467b-a235-5445c89d746f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d23572c4-5a25-794e-9537-b1ac7d8dfea1" executionId="fd26a14a-7860-4d46-b1fb-a71b09f97ba6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b3792b8b-05d1-c697-47f1-cc100a43c59f" executionId="5eac6f21-0533-4ec3-83cb-017369ab6294" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eaf4b778-bcd3-b3fc-cc6b-dfd4f2f3472e" executionId="6ee6dda9-f21f-4a2b-8e86-b6a76f68e000" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="8" executed="8" passed="8" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 4.5.0.0: Test execution started
+Running all tests in /app/bin/Debug/net8.0/PlaywrightDemoQA.dll
+   NUnit3TestExecutor discovered 8 of 8 NUnit test cases using Current Discovery mode, Non-Explicit run
+NUnit Adapter 4.5.0.0: Test execution complete
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
