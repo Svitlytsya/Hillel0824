@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using System;
 using System.Net;
 
 namespace Evershop.Tests.API
@@ -78,6 +79,17 @@ namespace Evershop.Tests.API
             Assert.IsNotNull(jsonResponse["data"]);  // Check if new ID was returned
             Assert.IsNotNull(jsonResponse["data"]["product_description_id"]);  // Check if new ID was returned
             await Console.Out.WriteLineAsync(jsonResponse["data"]["product_description_id"].ToString());
+
+            // Delete
+            string uuid = jsonResponse["data"]["uuid"].ToString();
+            request = new RestRequest($"http://localhost:3000/api/products/{uuid}", Method.Delete);
+            for (int i = 0; i < _cookies.Count; i++)
+            {
+                request.AddCookie(_cookies[i].Name, _cookies[i].Value, _cookies[i].Path, _cookies[i].Domain);
+            }
+            request.AddHeader("Authorization", $"Bearer {_sid}");
+            response = _client.Execute(request);
+
         }
 
         [TearDown]
