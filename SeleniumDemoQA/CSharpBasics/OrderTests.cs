@@ -14,7 +14,7 @@ namespace CSharpBasics
             Id = productId;
         }
     }
-    public class Order
+    public class Orders
     {
 
         public int OrderNumber { get; set; }
@@ -23,7 +23,7 @@ namespace CSharpBasics
         private DateTime _orderDate;
         private string _orderDescription;
 
-        public Order(int orderNumber)
+        public Orders(int orderNumber)
         {
             OrderNumber = orderNumber;
         }
@@ -58,7 +58,7 @@ namespace CSharpBasics
         [Test]
         public void OrderTest1()
         {
-            var order1 = new Order(2);
+            var order1 = new Orders(2);
             var on = order1.OrderNumber;
             order1.OrderNumber = 3;
             //order1.SetOrderNumber(3);
